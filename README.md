@@ -33,6 +33,9 @@ Launch an Amazon EC2 instance
 Deploying Django App on Amazon EC2
 Creating a load balancer
 Autoscaling an instance.
+
+<https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-1-launch-instance.html>
+
 # Launching an Amazon EC2 instance:
 Before we launch your instance, we should be sure setting up with Amazon EC2. Here we go to set them up following the below steps:
 
