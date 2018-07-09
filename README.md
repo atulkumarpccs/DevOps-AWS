@@ -1,5 +1,5 @@
 
-# Implement a process to deploy the non-containerised application to EC2 instances, and update them witout downime.
+# Implement a process to deploy the non-containerised application to EC2 instances, and update them without downime.
 
 
 ## Based on AWS trainning 
