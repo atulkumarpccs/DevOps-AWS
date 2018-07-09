@@ -5,9 +5,10 @@
 ## Based on AWS trainning 
 
 # 1.Deploying a Django app on Amazon EC2 instance
-In this tutorial we are going to launch an EC2 instance and deploy a Django app. I am going to use nginx, gunicorn in this process.
 
-From an eagle’s eye this is going to be our walk-through in this blog post.
+ we are going to launch an EC2 instance and deploy a Django app. I am going to use nginx, gunicorn in this process.
+
+
 
 Launch an Amazon EC2 instance
 Deploying Django App on Amazon EC2
@@ -24,7 +25,7 @@ Deploying a Django app on Amazon EC2 instance.
 
 in Django ,  deployment
 
-In this tutorial we are going to launch an EC2 instance and deploy a Django app. I am going to use nginx, gunicorn in this process.
+ we are going to launch an EC2 instance and deploy a Django app. I am going to use nginx, gunicorn in this process.
 
 From an eagle’s eye this is going to be our walk-through in this blog post.
 
