@@ -163,22 +163,30 @@ Define Load balancer
 Configure Health Check
 Assign Security groups
 Add EC2 instances [Optional as you can skip this step if you have planned to add auto scaling]
+
 # 1.Define Load Balancer
+
 Sign in to the AWS Management Console and open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 Click on Load Balancers in the EC2 dashboard pane of Resources page.
 In the Define Load Balancer Page make the necessary selections like name and listener configurations.
 Click continue to configure Health check for our instance.
+
 # 2.Configure Health Check
+
 On the Configure Health Check page of the Create a New Load Balancer wizard set the following configurations:
 Leave the Ping Protocol to its default value of HTTP
 We can set the Ping Port to its default value 80
 In the Ping Path field specify a single forward slash(“/”) the path to the default home page of the webserver as the Elastic Load balancer sends the health check queries to the path we specified here.
 Set the Advanced Options according to the needs.
 Click continue to select the subnet in which we want to launch our load balancer instance.
+
 # 3.Add Security Groups
+
 In the Assign Security Groups page, we can assign an existing security group or we can create a new one. If we use an existing security group we should ensure that it allows ingress to the ports that we configured the load balancer to use.
 Click Continue to register EC2 instances with our load balancer.
-# 4.Add EC2 instances [Optional]
+
+# 4.Add EC2 instances
+
 Note: If you are planning to add autoscaling to Loadbalancer we can skip this step as we can specify the instance while configuring Autoscaling settings.
 
 On the Add EC2 Instances page, in the Add Instances to Load Balancer table, select the boxes in the Instance column to register instances with our load balancer.
@@ -188,6 +196,7 @@ At the end Review all the settings and create the load balancer
 We can verify the creation and description of the specifications of our load balancer by clicking on the Load Balancers on the left pane of the Resources page and selecting the Load balancer.
 
 # Autoscaling an instance
+
 Amazon constantly monitors the app servers, and if any of them reaches a certain CPU usage, Amazon will automatically launch X new server(s) and associate them with the load balancer when they’re up and running. Same thing applies if traffic levels go down and you need to terminate an instance or two. Auto scaling enables us to automatically launch or terminate instances based on user-defined policies, health status checks and schedules. We can autoscale an instance using console and CLI(command line interface) as well. Autoscaling the instance through the console is straight forward and using CLI requires some tools and commands to get going. We can get to know how to autoscale through console in this post.
 
 Steps to follow for autoscaling an instance through console:
@@ -195,7 +204,9 @@ Steps to follow for autoscaling an instance through console:
 [Optional] Create a launch configuration. Skip this step if you want to use your own launch configuration.
 Create an Auto Scaling group with a load balancer.
 Verify that our Auto Scaling group has been created with a load balancer
+
 # 1. Create Launch configuration
+
 Sign in to the AWS Management Console and open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 On the Amazon EC2 Resources page, in the EC2 Dashboard pane, under Auto Scaling, click Launch Configurations.
 Click Create launch configuration.
@@ -208,7 +219,9 @@ After you are done reviewing your Launch Configuration, click Create launch conf
 In the Select an existing key pair or create a new key pair dialog box, select one of the listed options.
 Select the acknowledgement check box and then click Create Launch Configuration to create your Launch Configuration.
 The Launch configuration creation status page displays the status of your newly created launch configuration. Click Create an Auto scaling group using this launch configuration.
+
 # 2. Create an Auto Scaling group with a load balancer using console:
+
 On the Configure Auto Scaling Group Details page, enter the following details:
 In the Group name field, enter a name for your Auto Scaling group my-test-asg-lbs.
 In the Group size field, enter 2 for the number of instances you want your Auto Scaling group to start with.
@@ -221,10 +234,13 @@ In the Health Check Type field, select ELB or EC2 as required.
 The Health Check Grace Period field is pre-populated with the default value. We can type in the field to change the default value.
 Click Next: Configure scaling policies and configure it as required.
 Click Review to verify the details of your Auto Scaling Group and Create Auto Scaling group.
+
 # 3. Verify that our Auto Scaling group has been created with a load balancer:
+
 For verifying the autoscaling we can check it by clicking the Auto scaling groups and selecting the the autoscaling group that we have created. we can get to see the details tab containing our loadbalancer and in the instance tab we can see them with their status as Inservice.
 
 # Updating AMI when there is a change in the code:
+
 Whenever there is a new bit of code that the app needs, i.e. any changes in the code or any necessary package updating we need to update the AMI to get the new code running on the server. So, whenever there is a change in the code we create a new AMI with the instance that we have updated and we associate it to the load balancer and from then the app server will be using the new AMI(i.e. the app with the updated code). We will be terminating the older instances and the loadbalancer updates the newer instances according to the scaling rules and brings up the new instance running.
 
 
